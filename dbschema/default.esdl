@@ -3,50 +3,7 @@ module default {
     required country: str {
       constraint min_len_value(2);
       constraint max_len_value(2);
-    };
-    required zipCode: str;
-    required city: str;
-    required address: str;
-    required addressDetail: str;
-  };
-
-  abstract type HasTimestamps {
-    required createdAt: datetime {
-      readonly := true;
-      default := datetime_of_statement();
-    };
-
-    required updatedAt: datetime {
-      default := datetime_of_statement();
-      rewrite update using (datetime_of_statement());
-    };
-  };
-
-
-  type User extending HasTimestamps {
-    required firstName: str;
-    required lastName: str;
-
-    required email: str;
-    required phone: str;
-
-    required passwordHash: str;
-
-    #avatar_filename: str;
-  }
-
-  type Event extending HasAddress, HasTimestamps {
-    title: str;
-    required link organizer: Organizer;
-    description: str;
-
-    # Images
-    #cover_filename: str;
-    #ticket_image_filename: str;
-
-    startsAt: datetime;
-    endsAt: datetime;
-    constraint expression on (.startsAt < .endsAt);
+    asdasdasdad
 
     # Location
     required placeName: str;
